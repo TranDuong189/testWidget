@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Invoice Template</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./asset/styles.css" />
+    <link
+      href="https://cdn.chi.app/chiwidget/v1test/static/css/chiticketscripts.css"
+      rel="stylesheet"
+    />
+    <script
+      defer="defer"
+      src="https://cdn.chi.app/chiwidget/v1test/static/js/chiticketscripts.js"
+    ></script>
+  </head>
+  <body>
+    <style>
+      .layout-container {
+        position: fixed !important;
+        z-index: 1000;
+        bottom: 135px;
+        right: 30px;
+        overflow-y: auto !important;
+      }
+      .layout-container .header {
+        background: #39719f;
+        position: relative !important;
+      }
+      .ticketButton {
+        cursor: pointer;
+        padding: 10px;
+        border: 1px;
+        background: #39719f;
+        width: 80px;
+        height: 80px;
+        border-radius: 9999px;
+        position: fixed;
+        z-index: 100000;
+        bottom: 25px;
+        right: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        color: #fff;
+      }
+      .ticketButton span {
+        white-space: nowrap;
+      }
+      .header-title .header-title-event-name,
+      .header-title .header-title-event-time {
+        color: #fff !important;
+      }
+      .layoutWidget .layout-container {
+        max-height: calc(86vh - 35px) !important;
+      }
+      #downArrow {
+        margin-top: 8px;
+      }
+      .nameTest {
+        padding: 50px;
+      }
+      #getTickets {
+          font-size: 14px;
+        }
+      @media (max-height: 768px) {
+        .layout-container {
+          bottom: 95px;
+          right: 10px;
+        }
+        .ticketButton {
+          padding: 5px;
+          bottom: 10px;
+          right: 10px;
+          width: 75px;
+          height: 75px;
+        }
+        #getTickets {
+          font-size: 12px;
+        }
+      }
+      @media (max-width: 480px) {
+        .layoutWidget .layout-container {
+        max-height: calc(86% - 20px) !important;
+      }
+        .layout-container {
+          right: 0px !important;
+          width: 92% !important;
+          bottom: 86px;
+          left: 16px;
+          right: 16px;
+        }
+        .ticketButton {
+          padding: 7px;
+          bottom: 12px;
+          right: 10px;
+          width: 63px;
+          height: 63px;
+        }
+        #getTickets {
+          font-size: 11px;
+        }
+      }
+    </style>
+
+    <div style="width: 100%; height: 10000px; background-color: bisque">
+
+      <div class="nameTest">
+      </div>
+      <div id="eventChiModal" style="display: block">
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div
+          id="widgetTicket"
+          theme="OR"
+          eventUrl="https://test.chi.tickets/twice-dancing-night-2023-6-30"
+          tcUrl="https://cdn.chi.app/chiwidget/O_R_FESTIVAL_TERMS.pdf "
+        ></div>
+      </div>
+
+      <div
+        class="ticketButton"
+        onclick="showTicketModal()"
+      >
+        <div id="getTickets" style="display: block;">
+          GET <span>TICKETS</span>
+        </div>
+        <div id="downArrow" style="display: none">
+          <img src="https://i.ibb.co/FWs0nv9/down-arrow.png" alt="" srcset="" />
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let isShowTicketModal = false;
+      const showTicketModal = () => {
+        isShowTicketModal = !isShowTicketModal
+        if (isShowTicketModal) {
+            document.getElementById('eventChiModal').style.display = 'block';
+            document.getElementById('getTickets').style.display = 'none';
+            document.getElementById('downArrow').style.display = 'block';
+            document.body.style.overflow = "hidden";
+          } else {
+            document.getElementById('eventChiModal').style.display = 'none';
+            document.getElementById('getTickets').style.display = 'block';
+            document.getElementById('downArrow').style.display = 'none';
+            document.body.style.overflow = "auto";
+          }
+      }
+    </script>
+  </body>
+
+  
+</html>
